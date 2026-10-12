@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/daybook-planner/"
+title = "Daybook — Daily Planner"
+description = "A personal planning chatbot that helps turn tasks into a timed daily schedule, tracks whether each task was done, and saves daily plans and completion history."
+version = "1.0.0"
+id = "artifacts/daybook-planner"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/daybook-planner/" ]
+localPort = 21953
+
+[services.development]
+run = "pnpm --filter @workspace/daybook-planner run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/daybook-planner", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/daybook-planner/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21953"
+BASE_PATH = "/daybook-planner/"
