@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/daybook-planner/"
+previewPath = "/"
 title = "Daybook — Daily Planner"
 description = "A personal planning chatbot that helps turn tasks into a timed daily schedule, tracks whether each task was done, and saves daily plans and completion history."
 version = "1.0.0"
@@ -8,7 +8,7 @@ router = "path"
 
 [[services]]
 name = "web"
-paths = [ "/daybook-planner/" ]
+paths = [ "/" ]
 localPort = 21953
 
 [services.development]
@@ -25,4 +25,4 @@ to = "/index.html"
 
 [services.env]
 PORT = "21953"
-BASE_PATH = "/daybook-planner/"
+BASE_PATH = "/"
